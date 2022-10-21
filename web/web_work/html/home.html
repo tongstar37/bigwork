@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/homestyle.css">
+    <link rel="stylesheet" href="../css/body.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <title>HELLO</title>
+    <style>
+        .imgmove{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-image: url('../image/goat.gif');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <nav class="homenav">
+        <div class="navtitle"><strong>星星酥</strong></div>
+        <a href="home.html">我的主页</a>
+        <a href="about.html">关于我</a>
+        <a href="album.html">我的相册</a>
+        <div class="navanim home"></div>
+        <div class="none"></div>
+    </nav>
+    <main class="main">
+    <section class="section">
+        <div class="titleimg">
+            <div class="title">
+                <marquee   scrollamount="18">WLCOME TO MY BLOG</marquee>
+            </div>
+        </div>
+    </section>
+
+    <div class="section">
+        <a href="about.html">
+            <div class="part1 pt">
+                <div class="imghid"><div class="img"></div></div>
+                <div class="txt">
+                    <h1>坠欢莫拾</h1>
+                    <p>&emsp;&emsp;昨日种种，皆成今我，切莫思量，更莫哀，从今往后，怎么收获，怎么栽</p>
+                </div>
+            </div>
+        <div>
+        </a>
+        
+            <div class="part2 pt">
+                <a href="album.html"></a>
+                <div class="imghid"><div class="img"></div></div>
+                <div class="txt">
+                    <h1>酒痕在衣</h1>
+                    <p>&emsp;&emsp;草在结它的种子，风在摇它的叶子。我们站着，不说话，就十分美好。</p>      
+                </div>
+            </div>
+        </a>
+    </div>
+        <div class="part3 pt">     
+            <div class="imghid"><div class="img"></div></div>
+            <div class="txt">
+                <h1>凛冬散尽</h1>
+                <p>&emsp;&emsp;我从没被谁知道，所以也没被谁忘记。在别人的回忆中生活，并不是我的目的。</p>
+            </div>
+        </div>
+    <div>
+
+    <div class="part4 pt">
+        <a href="album.html"></a>
+        <div class="imghid"><div class="img"></div></div>
+        <div class="txt">
+            <h1>星河长明</h1>
+            <p>&emsp;&emsp;每个人都有属于自己的一片森林，也许我们 从来不曾去过，但它一直在那里，总会在那里。迷失的人迷失了，相逢的人会再相逢。</p>
+        </div>
+    </div>
+<div>
+        <div class="footer">
+            <p>To love oneself is the beginning of a lifelong romance.</p>
+            <p>爱自己是终身浪漫的开始.</p>
+        </div>
+
+        <div class="imgmove"></div>
+</body>
+<script>
+    let img = document.querySelector('.imgmove')
+    let deg = 0
+    let imgx = 0
+    let imgy = 0
+    let imgl = 0
+    let imgt = 0
+    let y = 0 
+    let index = 0
+
+    window.addEventListener('mousemove',function(xyz){
+        imgx = xyz.x - img.offsetLeft - img.clientWidth /2
+        imgy = xyz.y - img.offsetTop - img.clientHeight /2
+        deg = 360*Math.atan(imgy/imgx)/(2*Math.PI)
+        index= 0
+        let x = event.clientX
+        if(img.offsetLeft<x){
+            y=-180
+        }else{
+            y=0
+        }
+    })
+    setInterval(()=>{
+        img.style.transform = "rotateZ("+deg+"deg) rotateY("+y+"deg)"
+        index++
+        if(index<50){
+            imgl+=imgx/50
+            imgt+=imgy/50
+        }
+        img.style.left = imgl+"px"
+        img.style.top = imgt+"px"
+    },10)
+</script>
+
+
+</html>

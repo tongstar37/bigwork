@@ -1,0 +1,46 @@
+@charset "utf-8";
+body{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 1540px;
+    height: 60px;
+    top: 0px;
+    background-color:  rgba(84, 132, 161, 0.8);
+    overflow: hidden;
+    font-size: 25px;
+    color: whitesmoke;
+    opacity: 0.8;
+    z-index: 1000;
+}
+.homenav{
+    animation: load2 1s linear;
+}
+
+nav .navtitle{
+    padding-left: 50px;
+    width: 30%;
+}
+nav .navtitle strong{
+    font-size: 50px;
+    font-weight: bolder;
+}
+nav a{
+   display: block;
+   justify-content: center;
+   text-decoration: none;
+   z-index: 1;
+   height: inherit;
+   line-height: 50px;
+   width: 100px;
+   text-align: center;
+   font-weight: bolder;
+   color: whitesmoke;
+   transition: 0.5s;
+}
+

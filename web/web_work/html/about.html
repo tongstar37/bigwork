@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于</title>
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/body.css">
+    <link rel="stylesheet" href="../css/about.css">
+    <style>
+        .imgmove{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-image: url('../image/goat.gif');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="navtitle"><strong>星星酥</strong></div>       
+         <a href="home.html">我的主页</a>
+        <a href="about.html">关于我</a>
+        <a href="album.html">我的相册</a>
+        <div class="navanim about"></div>
+        <div class="none"></div>
+    </nav>
+
+    <div class="mid">
+        <div class="headimg">
+            <h1>SELF INTRODUCTION</h1>
+        </div>
+        <div class="ab a1">
+            <div class="txt">
+                <h2>个人简介</h2>
+                <p>&emsp;&emsp;来自四川轻化工大学</p>
+                <p>&emsp;&emsp;姓名:星星酥 班级:计科2020级7班 学号20341040131</p>
+            </div>
+            <div class="imghid">
+                <div class="img"></div>
+            </div>
+        </div>
+
+        <div class="ab a2">
+            <div class="imghid">
+                <div class="img"></div>
+            </div>
+            <div class="txt">
+                <h2>兴趣爱好</h2>
+                <p>&emsp;&emsp;喜欢打网球(又菜有爱玩)，爬山。没事的时候喜欢弹吉他和卡林巴琴,无聊的时候喜欢听歌</p>
+            </div>         
+        </div>
+
+        <div class="ab a3">
+            <div class="imghid">
+                <div class="img"></div>
+            </div>
+            <div class="txt">
+                <p>&emsp;&emsp;Le vent se lève, il faut tenter de vivre.                </p>
+                <p>&emsp;&emsp;纵有疾风起，人生不言弃。</p>
+                <p>&emsp;&emsp;God helps those who help themselves.</p>
+                <p>&emsp;&emsp;天助自助者</p>         
+                 <p>&emsp;&emsp;The way to have a better tomorrow is to start working on it today.</p>
+                 <p>&emsp;&emsp;拥有美好明天的方法就是今天开始努力。</p>
+            </div>         
+        </div>
+   
+    <div class="footer">
+        <p>To love oneself is the beginning of a lifelong romance.</p>
+        <p>爱自己是终身浪漫的开始.</p>
+    </div>
+
+    <div class="imgmove"></div>
+</body>
+<script>
+    let img = document.querySelector('.imgmove')
+    let deg = 0
+    let imgx = 0
+    let imgy = 0
+    let imgl = 0
+    let imgt = 0
+    let y = 0 
+    let index = 0
+
+    window.addEventListener('mousemove',function(xyz){
+        imgx = xyz.x - img.offsetLeft - img.clientWidth /2
+        imgy = xyz.y - img.offsetTop - img.clientHeight /2
+        deg = 360*Math.atan(imgy/imgx)/(2*Math.PI)
+        index= 0
+        let x = event.clientX
+        if(img.offsetLeft<x){
+            y=-180
+        }else{
+            y=0
+        }
+    })
+    setInterval(()=>{
+        img.style.transform = "rotateZ("+deg+"deg) rotateY("+y+"deg)"
+        index++
+        if(index<50){
+            imgl+=imgx/50
+            imgt+=imgy/50
+        }
+        img.style.left = imgl+"px"
+        img.style.top = imgt+"px"
+    },10)
+</script>
+
+</html>
